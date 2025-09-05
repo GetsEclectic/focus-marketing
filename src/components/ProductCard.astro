@@ -1,0 +1,8 @@
+---
+const { name, why, url, notes } = Astro.props;
+---
+<aside style="border:1px solid #ddd;border-radius:12px;padding:1rem;margin:1rem 0;">
+  <h3 style="margin:.2rem 0;"><a href={url} rel="sponsored noopener" target="_blank">{name}</a></h3>
+  <p style="margin:.25rem 0;">{why}</p>
+  {notes && <p style="color:#666;margin:.25rem 0;">{notes}</p>}
+</aside>

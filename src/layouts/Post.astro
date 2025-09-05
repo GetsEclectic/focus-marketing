@@ -1,0 +1,28 @@
+---
+const { title, description, date, tags } = Astro.props;
+import AffiliateDisclosure from "../components/AffiliateDisclosure.astro";
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title} • Focus</title>
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body { font: 16px/1.6 system-ui; margin: 2rem auto; max-width: 720px; padding: 0 1rem; }
+      a { color: inherit; }
+      a:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="/">← Home</a>
+      <h1 style="margin:.5rem 0 0">{title}</h1>
+      <p style="color:#666;margin:.25rem 0 1rem">{date} · {tags?.join(" • ")}</p>
+    </header>
+    <slot />
+    <footer style="margin-top:3rem;color:#666">
+      <AffiliateDisclosure />
+    </footer>
+  </body>
+</html>

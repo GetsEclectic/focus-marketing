@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+const posts = await getCollection('posts', ({ data }) => !data.draft);
+const sorted = posts.sort((a,b) => (a.data.date < b.data.date ? 1 : -1));
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Focus • Calm, credible routines</title>
+    <meta name="description" content="Evidence-aware focus routines and buyer's guides." />
+    <style>
+      :root { --w: 720px; }
+      body { font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial; margin: 2rem auto; max-width: var(--w); padding: 0 1rem; }
+      a { color: inherit; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .post { padding: 1rem 0; border-bottom: 1px solid #eee; }
+      .date { color:#666; font-size:.9rem; }
+      header { display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-bottom:1rem; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 style="margin:0">Focus</h1>
+      <nav><a href="/posts/">All posts</a></nav>
+    </header>
+    <p>Calm, credible routines and product picks that support focus without hype.</p>
+    {sorted.map((p) => (
+      <div class="post">
+        <h2><a href={`/posts/${p.slug}/`}>{p.data.title}</a></h2>
+        <div class="date">{p.data.date} · {p.data.tags?.join(" • ")}</div>
+        <p>{p.data.description}</p>
+      </div>
+    ))}
+    <footer style="margin-top:3rem;color:#666">
+      <p>Some links may be affiliate links. As an Amazon Associate I earn from qualifying purchases.</p>
+    </footer>
+  </body>
+</html>

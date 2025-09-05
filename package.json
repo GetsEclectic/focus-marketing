@@ -1,0 +1,15 @@
+{
+  "name": "focus-astro-site",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.4",
+    "astro": "^5.13.5"
+  }
+}
