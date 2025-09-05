@@ -41,3 +41,10 @@ Or use npx for one-off commands with specific npm version:
 ```bash
 npx npm@9.6.5 install
 ```
+
+## Deployment
+
+GitHub Pages URL: https://getseclectic.github.io/focus-marketing
+Repository: https://github.com/GetsEclectic/focus-marketing
+
+The site auto-deploys via GitHub Actions when pushing to main branch.
